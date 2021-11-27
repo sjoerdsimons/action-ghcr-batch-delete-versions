@@ -18,10 +18,10 @@ const cleaner = async (octokit, packageName, org, selector, excluder, dryRun) =>
 }
 
 const packageVersionIterator = (github, packageType, packageName, org) => {
-    return github.paginate.iterator(github.rest.packages.getAllPackageVersionsForPackageOwnedByOrg, {
+    return github.paginate.iterator(github.rest.packages.getAllPackageVersionsForPackageOwnedByUser, {
         package_type: packageType,
         package_name: packageName,
-        org: org
+        username: org
     })
 }
 
